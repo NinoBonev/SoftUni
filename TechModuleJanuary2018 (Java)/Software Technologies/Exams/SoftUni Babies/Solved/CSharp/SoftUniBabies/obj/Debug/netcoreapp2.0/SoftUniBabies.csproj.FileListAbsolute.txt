@@ -1,0 +1,11 @@
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\bin\Debug\netcoreapp2.0\SoftUniBabies.deps.json
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\bin\Debug\netcoreapp2.0\SoftUniBabies.runtimeconfig.json
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\bin\Debug\netcoreapp2.0\SoftUniBabies.runtimeconfig.dev.json
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\bin\Debug\netcoreapp2.0\SoftUniBabies.dll
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\bin\Debug\netcoreapp2.0\SoftUniBabies.pdb
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\obj\Debug\netcoreapp2.0\SoftUniBabies.csprojResolveAssemblyReference.cache
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\obj\Debug\netcoreapp2.0\SoftUniBabies.csproj.CoreCompileInputs.cache
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\obj\Debug\netcoreapp2.0\SoftUniBabies.AssemblyInfoInputs.cache
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\obj\Debug\netcoreapp2.0\SoftUniBabies.AssemblyInfo.cs
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\obj\Debug\netcoreapp2.0\SoftUniBabies.dll
+C:\Users\NinoB\Desktop\Exam\CSharp\SoftUniBabies\obj\Debug\netcoreapp2.0\SoftUniBabies.pdb
