@@ -26,7 +26,7 @@ public class Person {
     }
 
     public void setName(String name) {
-        if (name.trim().isEmpty() || name.contains("\\W+")){
+        if (name == null || name.trim().isEmpty() || name.contains("\\W+")){
             throw new IllegalArgumentException("Name cannot be empty");
         }
         this.name = name;
@@ -48,13 +48,11 @@ public class Person {
     }
 
     public void buyProduct(Product product){
-        if (this.money >= product.getCost()){
-            this.getProducts().add(product);
-            this.money -= product.getCost();
-            System.out.printf("%s bought %s%n", this.name, product.getName());
-        } else {
-            System.out.printf("%s can't afford %s%n", this.name, product.getName());
+        if (this.money < product.getCost()){
+           throw new IllegalArgumentException();
         }
+        this.getProducts().add(product);
+        this.money -= product.getCost();
     }
 
     @Override
