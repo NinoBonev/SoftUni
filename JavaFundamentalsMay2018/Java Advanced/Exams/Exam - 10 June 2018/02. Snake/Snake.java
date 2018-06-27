@@ -41,6 +41,9 @@ public class Snake {
                       if (result1 > snakeLength){
                           snakeLength = result1;
                           foodCount--;
+                          if (foodCount == 0){
+                              i = commands.length - 1;
+                          }
                       }
                   }
                   break;
@@ -55,6 +58,9 @@ public class Snake {
                         if (result2 > snakeLength){
                             snakeLength = result2;
                             foodCount--;
+                            if (foodCount == 0){
+                                i = commands.length - 1;
+                            }
                         }
                     }
                     break;
@@ -69,6 +75,9 @@ public class Snake {
                         if (result3 > snakeLength){
                             snakeLength = result3;
                             foodCount--;
+                            if (foodCount == 0){
+                                i = commands.length - 1;
+                            }
                         }
                     }
                     break;
@@ -83,6 +92,9 @@ public class Snake {
                         if (result4 > snakeLength){
                             snakeLength = result4;
                             foodCount--;
+                            if (foodCount == 0){
+                                i = commands.length - 1;
+                            }
                         }
                     }
                     break;
