@@ -9,11 +9,11 @@ public abstract class Animal {
     private Double animalWeight;
     private Integer foodEaten;
 
-    public Animal(String animalName, String animalType, Double animalWeight, Integer foodEaten) {
+    public Animal(String animalName, String animalType, Double animalWeight) {
         this.animalName = animalName;
         this.animalType = animalType;
         this.animalWeight = animalWeight;
-        this.foodEaten = foodEaten;
+        this.foodEaten = 0;
     }
 
     protected String getAnimalName() {
@@ -30,6 +30,10 @@ public abstract class Animal {
 
     protected Integer getFoodEaten() {
         return foodEaten;
+    }
+
+    public void setAnimalType(String animalType) {
+        this.animalType = animalType;
     }
 
     protected abstract String makeSound();

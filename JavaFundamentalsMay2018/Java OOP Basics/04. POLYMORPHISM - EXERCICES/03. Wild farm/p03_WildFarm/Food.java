@@ -13,4 +13,8 @@ public abstract class Food {
     protected Integer getQuantity() {
         return quantity;
     }
+
+    protected void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 }
