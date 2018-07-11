@@ -62,6 +62,8 @@ function gladiator(arr) {
         }
     }
 
+    console.log(gladiators);
+
     function gladiatorSkillsSumSort(a, b) {
         let aSum = [...a[1].values()].reduce((x, y) => x + y);
         let bSum = [...b[1].values()].reduce((x, y) => x + y);
