@@ -2,27 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Increment Counter</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+            crossorigin="anonymous"></script>
+    <script src="incrementCounter.js"></script>
 </head>
 <body>
-<table>
-    <tr><th>Name</th><th>Town</th></tr>
-    <tr><td>Eve</td><td>Sofia</td></tr>
-    <tr><td>Nick</td><td>Varna</td></tr>
-    <tr><td>Didi</td><td>Ruse</td></tr>
-    <tr><td>Tedy</td><td>Varna</td></tr>
-</table>
-<button onclick="colorize()">Colorize</button>
+<div id="wrapper">
+</div>
+<script src="incrementCounter.js"></script>
 <script>
-    function colorize() {
-        let rows = document.querySelectorAll("table tr");
-        let index = 0;
-        for (let row of rows) {
-            index++;
-            if (index % 2 === 0){
-                row.style.background = "teal";
-            }
-        }
+    window.onload = function(){
+        increment("#wrapper");
     }
 </script>
 </body>
