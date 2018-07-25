@@ -65,28 +65,31 @@
 <script>
     function sort(colIndex, descending) {
         let table = $('#products');
-        let head = table.find('thead');
         let body = table.find('tbody');
-        let rows = body.find('tr').toArray();
-        let sorter = null;
-        if (colIndex === 0) {
-            sorter = (a, b) => {
-                a = $(a).find('td:nth-child(1)').text();
-                b = $(b).find('td:nth-child(1)').text();
-                return a.localeCompare(b);
-            };
-        } else if (colIndex === 1) {
-            sorter = (a, b) => {
-                a = Number($(a).find('td:nth-child(2)').text());
-                b = Number($(b).find('td:nth-child(2)').text());
-                return a - b;
-            }
+        let names = body.find('tr').toArray();
+        let sorted;
+
+        switch (colIndex){
+            case 0 :
+                sorted = (a, b) => {
+                    a = $(a).find('td:nth-child(1)').text();
+                    b = $(b).find('td:nth-child(1)').text();
+                    return a.localeCompare(b);
+                };
+                break;
+            case 1 :
+                sorted = (a, b) => {
+                    a = $(a).find('td:nth-child(2)').text();
+                    b = $(b).find('td:nth-child(2)').text();
+                    return a - b;
+                };
+                break;
         }
-        rows.sort(sorter);
-        if (descending) {
-            rows.reverse();
+        names.sort(sorted);
+        if (descending === true){
+            names.reverse()
         }
-        $(rows).each((i, e) => $(e).appendTo(body));
+        $(names).appendTo(body);
     }
 </script>
 
