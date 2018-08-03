@@ -1,18 +1,18 @@
-package panzer.manager;
+package cresla.manager;
 
-import panzer.constants.EngineConstants;
-import panzer.contracts.InputReader;
-import panzer.contracts.Manager;
-import panzer.contracts.OutputWriter;
+import cresla.constants.EngineConstants;
+import cresla.interfaces.InputReader;
+import cresla.interfaces.Manager;
+import cresla.interfaces.OutputWriter;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by Nino Bonev - 3.8.2018 г., 15:59
+ * Created by Nino Bonev - 1.8.2018 г., 19:31
  */
-public class Engine {
+public class Engine{
     private InputReader reader;
     private OutputWriter writer;
     private Manager manager;
@@ -45,24 +45,21 @@ public class Engine {
 
         String result = "";
         switch (command) {
-            case "Vehicle":
-                result = this.manager.addVehicle(params);
+            case "Reactor":
+                result = manager.reactorCommand(params);
                 break;
-            case "Part":
-                result = this.manager.addPart(params);
+            case "Module":
+                result = manager.moduleCommand(params);;
                 break;
-            case "Inspect":
-                result = this.manager.inspect(params).trim();
+            case "Report":
+                result = manager.reportCommand(params);
                 break;
-            case "Battle":
-                result = this.manager.battle(params);
-                break;
-            case "Terminate":
-                result = this.manager.terminate(params);
+            case "Exit":
+                result = manager.exitCommand(params);
                 break;
         }
 
-        this.writer.println(result);
+        this.writer.writeLine(result);
 
     }
 }

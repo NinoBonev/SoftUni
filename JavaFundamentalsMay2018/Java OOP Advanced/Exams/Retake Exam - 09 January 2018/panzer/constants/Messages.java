@@ -1,7 +1,7 @@
 package panzer.constants;
 
 /**
- * Created by Nino Bonev - 1.8.2018 г., 20:42
+ * Created by Nino Bonev - 3.8.2018 г., 16:01
  */
 public class Messages {
 

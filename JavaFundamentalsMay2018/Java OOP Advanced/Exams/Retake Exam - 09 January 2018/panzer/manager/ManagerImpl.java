@@ -1,14 +1,20 @@
 package panzer.manager;
 
 import panzer.constants.Messages;
-import panzer.contracts.*;
+import panzer.contracts.BattleOperator;
+import panzer.contracts.Manager;
+import panzer.contracts.Part;
+import panzer.contracts.Vehicle;
 import panzer.factories.PartFactoryImpl;
 import panzer.factories.VehicleFactoryImpl;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- * Created by Nino Bonev - 1.8.2018 г., 19:32
+ * Created by Nino Bonev - 3.8.2018 г., 15:59
  */
 public class ManagerImpl implements Manager {
     private final VehicleFactoryImpl vehiclesFactory;

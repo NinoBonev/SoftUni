@@ -1,12 +1,12 @@
-package panzer.io;
+package cresla.io;
 
-import panzer.contracts.InputReader;
+import cresla.interfaces.InputReader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
- * Created by Nino Bonev - 3.8.2018 г., 16:02
+ * Created by Nino Bonev - 11.7.2018 г., 18:00
  */
 public class ConsoleReader implements InputReader {
     private final BufferedReader reader;

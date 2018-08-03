@@ -48,17 +48,17 @@ public class VehicleAssembler implements Assembler {
 
     @Override
     public long getTotalAttackModification() {
-        return this.arsenalParts.stream().mapToInt((x) -> x.getAttackModifier()).sum();
+        return this.arsenalParts.stream().mapToLong((x) -> x.getAttackModifier()).sum();
     }
 
     @Override
     public long getTotalDefenseModification() {
-        return this.shellParts.stream().mapToInt((x) -> x.getDefenseModifier()).sum();
+        return this.shellParts.stream().mapToLong((x) -> x.getDefenseModifier()).sum();
     }
 
     @Override
     public long getTotalHitPointModification() {
-        return this.enduranceParts.stream().mapToInt((x) -> x.getHitPointsModifier()).sum();
+        return this.enduranceParts.stream().mapToLong((x) -> x.getHitPointsModifier()).sum();
     }
 
     @Override

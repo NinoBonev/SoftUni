@@ -1,22 +1,22 @@
-package panzer.io;
+package cresla.io;
 
-import panzer.contracts.OutputWriter;
+import cresla.interfaces.OutputWriter;
 
 /**
- * Created by Nino Bonev - 3.8.2018 г., 16:02
+ * Created by Nino Bonev - 11.7.2018 г., 18:06
  */
 public class ConsoleWriter implements OutputWriter {
+
     public ConsoleWriter() {
     }
 
     @Override
-    public void println(String output) {
+    public void writeLine(String output) {
         System.out.println(output);
     }
 
     @Override
-    public void print(String output) {
+    public void write(String output) {
         System.out.print(output);
     }
-
 }
