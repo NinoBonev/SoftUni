@@ -46,19 +46,19 @@ public class Engine {
         String result = "";
         switch (command) {
             case "Vehicle":
-                result = this.manager.addVehicle(params);
+                result = this.manager.addVehicle(params).trim();
                 break;
             case "Part":
-                result = this.manager.addPart(params);
+                result = this.manager.addPart(params).trim();
                 break;
             case "Inspect":
                 result = this.manager.inspect(params).trim();
                 break;
             case "Battle":
-                result = this.manager.battle(params);
+                result = this.manager.battle(params).trim();
                 break;
             case "Terminate":
-                result = this.manager.terminate(params);
+                result = this.manager.terminate(params).trim();
                 break;
         }
 

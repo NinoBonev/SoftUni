@@ -19,7 +19,7 @@ public class PanzerBattleOperator implements BattleOperator {
         boolean isAttackerTurn = true;
         boolean isSomeoneDead = isDead(attackerHitPoints) || isDead(targetHitPoints);
 
-        while(isSomeoneDead) {
+        while(!isSomeoneDead) {
             if(isAttackerTurn) {
                 targetHitPoints -= (long)Math.max(0, Math.ceil(attackerAttack - (targetDefense + (targetWeight / 2))));
                 isAttackerTurn = false;
@@ -35,6 +35,6 @@ public class PanzerBattleOperator implements BattleOperator {
     }
 
     private boolean isDead(Long hitPoints) {
-        return hitPoints <= 0;
+        return hitPoints <= 0L;
     }
 }
