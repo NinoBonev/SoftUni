@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Nino Bonev - 3.8.2018 г., 8:43
  */
-abstract class BaseReactor implements Reactor {
+public abstract class BaseReactor implements Reactor {
     private int Id;
     private ModuleContainer container;
 
@@ -38,6 +38,7 @@ abstract class BaseReactor implements Reactor {
 //        } catch (NoSuchFieldException | IllegalAccessException e) {
 //            e.printStackTrace();
 //        }
+
         return this.container.getModulesByInput().size();
     }
 
