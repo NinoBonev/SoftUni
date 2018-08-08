@@ -1,30 +1,27 @@
 class Task {
-
-    constructor(title, deadline) {
+    constructor(title, deadline){
         this.title = title;
-        this.deadline = deadline;
         this.status = "Open";
+        this.deadline = deadline;
     }
 
-    get deadline(){
+
+    get deadline() {
         return this._deadline;
     }
 
     set deadline(value) {
         if (Date.now() > value){
-            throw new Error("Date is not valid!")
+            throw new Error("Invalid Date")
         }
         this._deadline = value;
     }
 
-    isOverdue(){
-        if (this.status === 'Complete'){
-            return false;
-        }
-        return this.deadline < Date.now()
+    get isOverdue(){
+        return Date.now() > this.deadline;
     }
 
-    get sortingCriteria() {
+    get taskLevelSet(){
         if (this.isOverdue && this.status !== "Complete") {
             return 0;
         } else if (this.status === "In Progress") {
@@ -37,7 +34,7 @@ class Task {
     }
 
     static comparator(a, b){
-        let result = a.sortingCriteria - b.sortingCriteria;
+        let result = a.taskLevelSet - b.taskLevelSet;
 
         if (result === 0) {
             return a._deadline - b._deadline;
@@ -45,22 +42,23 @@ class Task {
         return result;
     }
 
+    get icon() {
+        let icon = "";
+        this.status === "Open" ? icon = "\u2731" :
+            this.status === "In Progress" ? icon = "\u219D" :
+                this.status === "Complete" ? icon = "\u2714" :
+                    icon = "\u26A0";
+        return icon;
+    }
+
     toString(){
-        let result = '';
-        if (!this.isOverdue()) {
-            switch (this.status) {
-                case "Open" : result += `[\u2731] ${this.title} (deadline: ${this._deadline.toString()})`; break;
-                case "In Progress" : result += `[\u219D] ${this.title} (deadline: ${this._deadline.toString()})`; break;
-                case "Complete": result += `[\u2714] ${this.title}`; break;
-            }
+        if (this.isOverdue && this.status !== "Complete") {
+            return `[${this.icon}] ${this.title} (overdue)`
+        } else if (this.isOverdue && this.status === "Complete") {
+            return `[${this.icon}] ${this.title}`
         } else {
-            switch (this.status){
-                case "Complete" : result += `[\u2714] ${this.title}`; break;
-                case "In Progress" :
-                case "Open" : result += `[\u26A0] ${this.title} (overdue)`; break;
-            }
+            return `[${this.icon}] ${this.title} {(deadline: ${this._deadline.toString()})}`
         }
-        return result;
     }
 }
 
