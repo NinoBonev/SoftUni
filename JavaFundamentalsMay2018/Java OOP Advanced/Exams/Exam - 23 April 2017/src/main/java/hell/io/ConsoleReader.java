@@ -12,8 +12,8 @@ import java.io.InputStreamReader;
 public class ConsoleReader implements InputReader {
     private final BufferedReader reader;
 
-    public ConsoleReader() {
-        this.reader = new BufferedReader(new InputStreamReader(System.in));
+    public ConsoleReader(BufferedReader bufferedReader) {
+        this.reader = bufferedReader;
     }
 
     @Override

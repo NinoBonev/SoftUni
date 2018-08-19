@@ -3,9 +3,7 @@ package hell.manager;
 import hell.constants.EngineConstants;
 import hell.constants.Messages;
 import hell.entities.items.RecipeItem;
-import hell.factories.CommonItemFactory;
-import hell.factories.HeroFactory;
-import hell.factories.RecipeItemFactory;
+import hell.factories.*;
 import hell.interfaces.Hero;
 import hell.interfaces.Item;
 import hell.interfaces.Recipe;
@@ -22,13 +20,9 @@ public class Manager {
     private RecipeItemFactory recipeItemFactory;
     private HeroFactory heroFactory;
     private Map<String, Hero> heroes;
-    private Map<String, Item> items;
-    private Map<String, Recipe> recipes;
 
-    public Manager(CommonItemFactory commonItemFactory, RecipeItemFactory recipeItemFactory, HeroFactory heroFactory) {
-        this.heroes = new LinkedHashMap<>();
-        this.items = new LinkedHashMap<>();
-        this.recipes = new LinkedHashMap<>();
+    public Manager(HeroesRepository heroesRepository, CommonItemFactory commonItemFactory, RecipeItemFactory recipeItemFactory, HeroFactory heroFactory) {
+        this.heroes = heroesRepository.createMap();
         this.heroFactory = heroFactory;
         this.commonItemFactory = commonItemFactory;
         this.recipeItemFactory = recipeItemFactory;
@@ -48,7 +42,6 @@ public class Manager {
         String heroName = arguments.get(1);
         Item item = commonItemFactory.createCommonItem(arguments);
         this.heroes.get(heroName).addItem(item);
-        this.items.put(name, item);
         return String.format(Messages.ITEM_ADDED, name, heroName);
     }
     /*
@@ -60,38 +53,41 @@ public class Manager {
         String heroName = arguments.get(1);
         RecipeItem recipeItem = recipeItemFactory.createRecipeItem(arguments);
         this.heroes.get(heroName).addRecipe(recipeItem);
-        this.recipes.put(name, recipeItem);
         return String.format(Messages.RECIPE_ADDED, name, heroName);
     }
 
     public String inspectHero(List<String> arguments){
         String name = arguments.get(0);
-        Hero hero = this.heroes.get(name);
 
-        StringBuilder sb = new StringBuilder();
-        if (hero.getItems().size() > 0){
-            for (Item item : hero.getItems()) {
-                sb.append(System.lineSeparator())
-                        .append(String.format(Messages.ITEM_INFO,
-                        item.getName(),
-                        item.getStrengthBonus(),
-                        item.getAgilityBonus(),
-                        item.getIntelligenceBonus(),
-                        item.getHitPointsBonus(),
-                        item.getDamageBonus()));
+        if (this.heroes.containsKey(name)) {
+            Hero hero = this.heroes.get(name);
+
+            StringBuilder sb = new StringBuilder();
+            if (hero.getItems().size() > 0) {
+                for (Item item : hero.getItems()) {
+                    sb.append(System.lineSeparator())
+                            .append(String.format(Messages.ITEM_INFO,
+                                    item.getName(),
+                                    item.getStrengthBonus(),
+                                    item.getAgilityBonus(),
+                                    item.getIntelligenceBonus(),
+                                    item.getHitPointsBonus(),
+                                    item.getDamageBonus()));
+                }
+            } else {
+                sb.append(Messages.ITEMS_NONE);
             }
-        } else {
-            sb.append(Messages.ITEMS_NONE);
+            return String.format(Messages.INSPECT_HERO,
+                    hero.getName(),
+                    hero.getClass().getSimpleName(),
+                    hero.getHitPoints(),
+                    hero.getDamage(),
+                    hero.getStrength(),
+                    hero.getAgility(),
+                    hero.getIntelligence(),
+                    sb.toString());
         }
-        return String.format(Messages.INSPECT_HERO,
-                hero.getName(),
-                hero.getClass().getSimpleName(),
-                hero.getHitPoints(),
-                hero.getDamage(),
-                hero.getStrength(),
-                hero.getAgility(),
-                hero.getIntelligence(),
-                sb.toString());
+        return "";
     }
     //{hitpoints} - {damage} - {strength} - {agility} - {intelligence} - ({item1Name}, {item2Name}, {item3Name})
     public String quitCommand(List<String> arguments){
