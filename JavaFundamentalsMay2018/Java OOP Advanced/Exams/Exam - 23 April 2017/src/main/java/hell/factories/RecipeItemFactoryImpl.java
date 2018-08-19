@@ -1,6 +1,7 @@
 package hell.factories;
 
 import hell.entities.items.RecipeItem;
+import hell.interfaces.RecipeItemFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,14 +9,15 @@ import java.util.List;
 /**
  * Created by Nino Bonev - 19.8.2018 г., 14:21
  */
-public class RecipeItemFactory {
+public class RecipeItemFactoryImpl implements RecipeItemFactory {
 
-    public RecipeItemFactory(){}
+    public RecipeItemFactoryImpl(){}
 
     /*
     name (string), heroName (string), strengthBonus (int), agilityBonus (int), intelligenceBonus (int),
      hitpointsBonus (int), damageBonus (int), requiredItem1 (string), requiredItem2 (string). . .
      */
+    @Override
     public RecipeItem createRecipeItem(List<String> arguments){
         String name = arguments.get(0);
         Integer strengthBonus = Integer.parseInt(arguments.get(2));

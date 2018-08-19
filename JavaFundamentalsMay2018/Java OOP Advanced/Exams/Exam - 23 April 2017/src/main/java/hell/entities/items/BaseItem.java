@@ -22,7 +22,7 @@ public abstract class BaseItem implements Item {
     private int hitPointsBonus;
     private int damageBonus;
 
-    BaseItem(String name, int strengthBonus, int agilityBonus, int intelligenceBonus, int hitPointsBonus, int damageBonus) {
+    BaseItem(String name, Integer strengthBonus, Integer agilityBonus, Integer intelligenceBonus, Integer hitPointsBonus, Integer damageBonus) {
         this.name = name;
         this.strengthBonus = strengthBonus;
         this.agilityBonus = agilityBonus;

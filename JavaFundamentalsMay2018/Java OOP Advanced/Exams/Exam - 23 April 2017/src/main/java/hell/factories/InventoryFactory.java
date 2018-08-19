@@ -11,7 +11,6 @@ public class InventoryFactory {
     public InventoryFactory (){}
 
     public Inventory createHeroInventory(){
-        HeroInventoryRepository heroInventoryRepository = new HeroInventoryRepository();
-        return new HeroInventory(heroInventoryRepository);
+        return new HeroInventory();
     }
 }

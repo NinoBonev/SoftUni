@@ -4,11 +4,8 @@ import callofduty.constants.Messages;
 import callofduty.domain.agents.BaseAgent;
 import callofduty.domain.agents.MasterAgent;
 import callofduty.domain.agents.NoviceAgent;
-import callofduty.factories.AgentFactory;
-import callofduty.interfaces.Agent;
-import callofduty.interfaces.Mission;
-import callofduty.interfaces.MissionControl;
-import callofduty.interfaces.MissionManager;
+import callofduty.factories.AgentFactoryImpl;
+import callofduty.interfaces.*;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -25,11 +22,11 @@ public class ManagerImpl implements MissionManager {
     private final Map<String, Agent> agents;
     private final Map<String, Mission> missions;
 
-    public ManagerImpl(MissionControl missionControl) {
+    public ManagerImpl(MissionControl missionControl, AgentFactory agentFactory) {
         this.missionControl = missionControl;
         this.agents = new LinkedHashMap<>();
         this.missions = new LinkedHashMap<>();
-        this.agentFactory = new AgentFactory();
+        this.agentFactory = agentFactory;
     }
 
     @Override

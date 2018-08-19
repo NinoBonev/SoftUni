@@ -1,17 +1,19 @@
 package hell.factories;
 
 import hell.entities.items.CommonItem;
+import hell.interfaces.CommonItemFactory;
 
 import java.util.List;
 
 /**
  * Created by Nino Bonev - 19.8.2018 г., 14:11
  */
-public class CommonItemFactory {
+public class CommonItemFactoryImpl implements CommonItemFactory {
 
-    public CommonItemFactory(){}
+    public CommonItemFactoryImpl(){}
 
     //name (string), heroName (string), strengthBonus (int), agilityBonus (int), intelligenceBonus (int), hitpointsBonus (int), damageBonus (int)
+    @Override
     public CommonItem createCommonItem(List<String> arguments){
         String name = arguments.get(0);
         Integer strengthBonus = Integer.parseInt(arguments.get(2));

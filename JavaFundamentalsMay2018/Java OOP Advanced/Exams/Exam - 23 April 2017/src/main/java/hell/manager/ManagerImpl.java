@@ -4,9 +4,7 @@ import hell.constants.EngineConstants;
 import hell.constants.Messages;
 import hell.entities.items.RecipeItem;
 import hell.factories.*;
-import hell.interfaces.Hero;
-import hell.interfaces.Item;
-import hell.interfaces.Recipe;
+import hell.interfaces.*;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -15,19 +13,20 @@ import java.util.Map;
 /**
  * Created by Nino Bonev - 19.8.2018 г., 12:26
  */
-public class Manager {
+public class ManagerImpl implements Manager {
     private CommonItemFactory commonItemFactory;
     private RecipeItemFactory recipeItemFactory;
     private HeroFactory heroFactory;
     private Map<String, Hero> heroes;
 
-    public Manager(HeroesRepository heroesRepository, CommonItemFactory commonItemFactory, RecipeItemFactory recipeItemFactory, HeroFactory heroFactory) {
-        this.heroes = heroesRepository.createMap();
+    public ManagerImpl(HeroFactory heroFactory, CommonItemFactory commonItemFactory, RecipeItemFactory recipeItemFactory) {
+        this.heroes = new LinkedHashMap<>();
         this.heroFactory = heroFactory;
         this.commonItemFactory = commonItemFactory;
         this.recipeItemFactory = recipeItemFactory;
     }
 
+    @Override
     public String createHero(List<String> arguments){
         String name = arguments.get(0);
         String type = arguments.get(1);
@@ -37,7 +36,8 @@ public class Manager {
     }
 
     //name (string), heroName (string), strengthBonus (int), agilityBonus (int), intelligenceBonus (int), hitpointsBonus (int), damageBonus (int)
-    public String createCommonItem (List<String> arguments){
+    @Override
+    public String createCommonItem(List<String> arguments){
         String name = arguments.get(0);
         String heroName = arguments.get(1);
         Item item = commonItemFactory.createCommonItem(arguments);
@@ -48,14 +48,16 @@ public class Manager {
     name (string), heroName (string), strengthBonus (int), agilityBonus (int), intelligenceBonus (int),
      hitpointsBonus (int), damageBonus (int), requiredItem1 (string), requiredItem2 (string). . .
      */
+    @Override
     public String createRecipeItem(List<String> arguments){
         String name = arguments.get(0);
         String heroName = arguments.get(1);
-        RecipeItem recipeItem = recipeItemFactory.createRecipeItem(arguments);
-        this.heroes.get(heroName).addRecipe(recipeItem);
+        Recipe recipe = recipeItemFactory.createRecipeItem(arguments);
+        this.heroes.get(heroName).addRecipe(recipe);
         return String.format(Messages.RECIPE_ADDED, name, heroName);
     }
 
+    @Override
     public String inspectHero(List<String> arguments){
         String name = arguments.get(0);
 
@@ -89,7 +91,9 @@ public class Manager {
         }
         return "";
     }
+
     //{hitpoints} - {damage} - {strength} - {agility} - {intelligence} - ({item1Name}, {item2Name}, {item3Name})
+   @Override
     public String quitCommand(List<String> arguments){
         StringBuilder print = new StringBuilder();
         final int[] count = new int[]{1};

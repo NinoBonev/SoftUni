@@ -24,7 +24,7 @@ public abstract class BaseHero implements Hero {
     private long damage;
     private Inventory inventory;
 
-    BaseHero(String name, long strength, long agility, long intelligence, long hitPoints, long damage, Inventory inventory) {
+    BaseHero(String name, Long strength, Long agility, Long intelligence, Long hitPoints, Long damage, Inventory inventory) {
         this.name = name;
         this.agility = agility;
         this.hitPoints = hitPoints;

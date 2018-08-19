@@ -16,20 +16,20 @@ Damage	150	300	250
      */
     public static final String TERMINAL_COMMAND = "Quit";
     public static final String DELIMITER = ", ";
-    public static final int BARBARIAN_STRENGTH_DEFAULT = 90;
-    public static final int BARBARIAN_AGILITY_DEFAULT = 25;
-    public static final int BARBARIAN_INTELLIGENCE_DEFAULT = 10;
-    public static final int BARBARIAN_HIT_POINTS_DEFAULT = 350;
-    public static final int BARBARIAN_DAMAGE_DEFAULT = 150;
-    public static final int ASSASSIN_STRENGTH_DEFAULT = 25;
-    public static final int ASSASSIN_AGILITY_DEFAULT = 100;
-    public static final int ASSASSIN_INTELLIGENCE_DEFAULT = 15;
-    public static final int ASSASSIN_HIT_POINTS_DEFAULT = 150;
-    public static final int ASSASSIN_DAMAGE_DEFAULT = 300;
-    public static final int WIZARD_STRENGTH_DEFAULT = 25;
-    public static final int WIZARD_AGILITY_DEFAULT = 25;
-    public static final int WIZARD_INTELLIGENCE_DEFAULT = 100;
-    public static final int WIZARD_HIT_POINTS_DEFAULT = 100;
-    public static final int WIZARD_DAMAGE_DEFAULT = 250;
+    public static final Long BARBARIAN_STRENGTH_DEFAULT = 90L;
+    public static final Long BARBARIAN_AGILITY_DEFAULT = 25L;
+    public static final Long BARBARIAN_INTELLIGENCE_DEFAULT = 10L;
+    public static final Long BARBARIAN_HIT_POINTS_DEFAULT = 350L;
+    public static final Long BARBARIAN_DAMAGE_DEFAULT = 150L;
+    public static final Long ASSASSIN_STRENGTH_DEFAULT = 25L;
+    public static final Long ASSASSIN_AGILITY_DEFAULT = 100L;
+    public static final Long ASSASSIN_INTELLIGENCE_DEFAULT = 15L;
+    public static final Long ASSASSIN_HIT_POINTS_DEFAULT = 150L;
+    public static final Long ASSASSIN_DAMAGE_DEFAULT = 300L;
+    public static final Long WIZARD_STRENGTH_DEFAULT = 25L;
+    public static final Long WIZARD_AGILITY_DEFAULT = 25L;
+    public static final Long WIZARD_INTELLIGENCE_DEFAULT = 100L;
+    public static final Long WIZARD_HIT_POINTS_DEFAULT = 100L;
+    public static final Long WIZARD_DAMAGE_DEFAULT = 250L;
     private EngineConstants(){}
 }

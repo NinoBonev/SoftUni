@@ -1,10 +1,8 @@
 package callofduty;
 
 import callofduty.core.MissionControlImpl;
-import callofduty.interfaces.InputReader;
-import callofduty.interfaces.MissionControl;
-import callofduty.interfaces.MissionManager;
-import callofduty.interfaces.OutputWriter;
+import callofduty.factories.AgentFactoryImpl;
+import callofduty.interfaces.*;
 import callofduty.io.ConsoleReader;
 import callofduty.io.ConsoleWriter;
 import callofduty.manager.Engine;
@@ -16,8 +14,10 @@ public class Main {
 
         OutputWriter writer = new ConsoleWriter();
         InputReader reader = new ConsoleReader();
-        MissionManager manager = new ManagerImpl(missionControl);
+        AgentFactory agentFactory = new AgentFactoryImpl();
 
+        MissionManager manager = new ManagerImpl(missionControl, agentFactory);
+        
         Engine engine = new Engine(writer, reader, manager);
 
         engine.run();

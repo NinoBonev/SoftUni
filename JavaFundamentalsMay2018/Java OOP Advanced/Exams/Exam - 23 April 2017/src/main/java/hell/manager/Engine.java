@@ -2,6 +2,7 @@ package hell.manager;
 
 import hell.constants.EngineConstants;
 import hell.interfaces.InputReader;
+import hell.interfaces.Manager;
 import hell.interfaces.OutputWriter;
 
 import java.util.Arrays;
@@ -15,7 +16,7 @@ public class Engine {
     private Manager manager;
     private InputReader reader;
     private OutputWriter writer;
-    //private MissionManager manager;
+    //private MissionManager managerImpl;
 
     public Engine(OutputWriter writer, InputReader reader, Manager manager) {
         this.writer = writer;

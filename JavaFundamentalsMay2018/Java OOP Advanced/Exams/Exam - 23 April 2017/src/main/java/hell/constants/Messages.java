@@ -15,15 +15,15 @@ public class Messages {
             "Agility: %s\n" +
             "Intelligence: %s\n" +
             "Items:%s";
-    public static final String ITEMS_NONE = " None\n";
-    public static final String ITEMS_NONE_NO_SPACE = "None\n";
+    public static final String ITEMS_NONE = " None";
+    public static final String ITEMS_NONE_NO_SPACE = "None";
     //{itemName} - {strengthBonus} - {agilityBonus} - {intelligenceBonus} - {hitpointsBonus} - {damageBonus}
     public static final String ITEM_INFO = "###Item: %s\n" +
             "###+%d Strength\n" +
             "###+%d Agility\n" +
             "###+%d Intelligence\n" +
             "###+%d HitPoints\n" +
-            "###+%d Damage\n";
+            "###+%d Damage";
     //{counter} - {heroType} - {heroName}
     //{hitpoints} - {damage} - {strength} - {agility} - {intelligence} - ({item1Name}, {item2Name}, {item3Name})
     public static final String OVER_MESSAGE = "%d. %s: %s\n" +
