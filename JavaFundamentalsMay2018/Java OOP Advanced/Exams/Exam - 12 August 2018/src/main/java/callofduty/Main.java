@@ -17,7 +17,7 @@ public class Main {
         AgentFactory agentFactory = new AgentFactoryImpl();
 
         MissionManager manager = new ManagerImpl(missionControl, agentFactory);
-        
+
         Engine engine = new Engine(writer, reader, manager);
 
         engine.run();
