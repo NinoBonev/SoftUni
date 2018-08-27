@@ -46,14 +46,8 @@ public class Agents {
                 case "change" :
                     String agent1 = data[1];
                     String agent2 = data[2];
-                    Map<String, Double> agent1Missions = new LinkedHashMap<>();
-                    for (Map.Entry<String, Double> entry : agentMissions.get(agent1).entrySet()) {
-                        agent1Missions.put(entry.getKey(), entry.getValue());
-                    }
-                    Map<String, Double> agent2Missions = new LinkedHashMap<>();
-                    for (Map.Entry<String, Double> entry : agentMissions.get(agent2).entrySet()) {
-                        agent2Missions.put(entry.getKey(), entry.getValue());
-                    }
+                    Map<String, Double> agent1Missions = new LinkedHashMap<>(agentMissions.get(agent1));
+                    Map<String, Double> agent2Missions = new LinkedHashMap<>(agentMissions.get(agent2));
                     agentMissions.get(agent1).clear();
                     agentMissions.get(agent2).clear();
                     agentMissions.get(agent2).putAll(agent1Missions);
