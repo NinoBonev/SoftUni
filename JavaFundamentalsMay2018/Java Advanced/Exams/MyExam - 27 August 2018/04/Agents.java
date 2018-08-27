@@ -65,25 +65,12 @@ public class Agents {
         agentMissions.entrySet().stream()
                 .filter(x -> x.getValue().size() != 0)
                 .sorted((a, b) -> {
-                    Double agent1Rating = 0.0;
-                    Double agent2Rating = 0.0;
+                    Double agent1Rating = a.getValue().values().stream().reduce((c, d) -> c + d).get();
+                    Double agent2Rating = b.getValue().values().stream().reduce((c, d) -> c + d).get();
 
-                    for (Double rating : a.getValue().values()) {
-                        agent1Rating += rating;
-                    }
-                    for (Double rating : b.getValue().values()) {
-                        agent2Rating += rating;
-                    }
-
-                    Integer result = Double.compare(agent2Rating, agent1Rating);
-
-                    return result;
+                    return Double.compare(agent2Rating, agent1Rating);
                 }).forEach(z -> {
-                    Double agentRating = 0.0;
-
-            for (Double rating : z.getValue().values()) {
-                agentRating += rating;
-            }
+                    Double agentRating = z.getValue().values().stream().reduce((c, d) -> c + d).get();
 
             System.out.println(String.format("Agent: %s - Total Rating: %.2f", z.getKey(), agentRating));
             z.getValue().entrySet().stream().sorted((n, b) -> b.getValue().compareTo(n.getValue())).forEach( w -> {
