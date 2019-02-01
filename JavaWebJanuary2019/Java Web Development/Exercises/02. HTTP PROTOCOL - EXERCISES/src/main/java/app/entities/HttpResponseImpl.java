@@ -11,50 +11,49 @@ import java.util.Map;
 /**
  * Created by Nino Bonev - 22.1.2019 г., 9:34
  */
-public class HttpResponseImpl implements HttpRequest {
+public class HttpResponseImpl implements HttpResponse {
+    private HttpRequest httpRequest;
+    private int statusCode;
+
+    public HttpResponseImpl(List<String> requestContent) {
+        this.httpRequest = new HttpRequestImpl(requestContent);
+        this.setStatusCode(Integer.parseInt(requestContent.get(1)
+                .split("\\r\\n")[0]
+                .split("\\s+")[0]));
+    }
 
     @Override
     public HashMap<String, String> getHeaders() {
-        return null;
+        return this.httpRequest.getHeaders();
     }
 
     @Override
-    public HashMap<String, String> getBodyParameters() {
-        return null;
+    public int getStatusCode() {
+        return this.statusCode;
     }
 
     @Override
-    public String getMethod() {
-        return null;
+    public byte[] getContent() {
+        return new byte[0];
     }
 
     @Override
-    public void setMethod(String method) {
-
+    public byte[] getBytes() {
+        return new byte[0];
     }
 
     @Override
-    public String getRequestUrl() {
-        return null;
+    public void setStatusCode(int statusCode) {
+            this.statusCode = statusCode;
     }
 
     @Override
-    public void setRequestUrl(String requestUrl) {
+    public void setContent(byte[] content) {
 
     }
 
     @Override
     public void addHeader(String header, String value) {
 
-    }
-
-    @Override
-    public void addBodyParameter(String parameter, String value) {
-
-    }
-
-    @Override
-    public boolean isResource() {
-        return false;
     }
 }
