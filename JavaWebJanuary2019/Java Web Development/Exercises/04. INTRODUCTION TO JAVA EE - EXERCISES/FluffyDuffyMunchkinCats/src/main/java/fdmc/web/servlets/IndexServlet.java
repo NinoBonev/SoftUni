@@ -18,7 +18,7 @@ import java.io.PrintWriter;
 @WebServlet("/")
 public class IndexServlet extends HttpServlet {
 
-    private final static String INDEX_HTML_FILE_PATH = "C:\\testing\\FluffyDuffyMunchkinCats\\src\\main\\resources\\views\\index.html";
+    private final static String INDEX_HTML_FILE_PATH = "C:\\Nino\\Projects\\SoftUni\\JavaWebJanuary2019\\Java Web Development\\Exercises\\04. INTRODUCTION TO JAVA EE - EXERCISES\\FluffyDuffyMunchkinCats\\src\\main\\resources\\views\\index.html";
     private final HtmlReader htmlReader;
 
     @Inject

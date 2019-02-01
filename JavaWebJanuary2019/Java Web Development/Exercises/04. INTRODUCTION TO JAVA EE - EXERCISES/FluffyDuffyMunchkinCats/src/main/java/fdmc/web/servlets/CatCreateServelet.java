@@ -20,7 +20,7 @@ import java.util.Map;
 public class CatCreateServelet extends HttpServlet {
 
     private final HtmlReader htmlReader;
-    private final static String INDEX_CREATE_CAT_PATH = "C:\\testing\\FluffyDuffyMunchkinCats\\src\\main\\resources\\views\\createCat.html";
+    private final static String INDEX_CREATE_CAT_PATH = "C:\\Nino\\Projects\\SoftUni\\JavaWebJanuary2019\\Java Web Development\\Exercises\\04. INTRODUCTION TO JAVA EE - EXERCISES\\FluffyDuffyMunchkinCats\\src\\main\\resources\\views\\createCat.html";
 
     @Inject
     public CatCreateServelet(HtmlReader htmlReader) {
