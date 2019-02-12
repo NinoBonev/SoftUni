@@ -1,7 +1,7 @@
 package fdmc.web.servlets;
 
 import fdmc.domain.entities.Cat;
-import fdmc.util.HtmlReader;
+import fdmc.utils.HtmlReader;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -43,7 +44,7 @@ public class CatCreateServelet extends HttpServlet {
         cat.setAge(Integer.parseInt(req.getParameter("age")));
 
         if (req.getSession().getAttribute("cats") == null) {
-            req.getSession().setAttribute("cats", new ArrayList<Cat>());
+            req.getSession().setAttribute("cats", new HashMap<Cat, String>());
         }
 
         //ArrayList<Cat> cats = (ArrayList<Cat>)req.getSession().getAttribute("cats");

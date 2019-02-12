@@ -1,6 +1,6 @@
 package fdmc.web.servlets;
 
-import fdmc.util.HtmlReader;
+import fdmc.utils.HtmlReader;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -30,6 +30,6 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter writer = resp.getWriter();
 
-        writer.println(INDEX_HTML_FILE_PATH);
+        writer.println(this.htmlReader.readHtmlFile(INDEX_HTML_FILE_PATH));
     }
 }

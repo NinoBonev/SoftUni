@@ -1,20 +1,21 @@
 package fdmc.web.servlets;
 
 import fdmc.domain.entities.Cat;
-import fdmc.util.HtmlReader;
+import fdmc.utils.HtmlReader;
 
 import javax.inject.Inject;
-import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
  * Created by Nino Bonev - 1.2.2019 г., 15:57
  */
+
+@WebServlet("/cats/profile")
 public class CatProfileServelet extends HttpServlet {
 
     private final HtmlReader htmlReader;
@@ -33,11 +34,13 @@ public class CatProfileServelet extends HttpServlet {
         Cat cat = ((Map<String, Cat>) req.getSession().getAttribute("cats"))
                 .get(catName);
 
+
         String htmlFileContent;
         if (cat == null){
             htmlFileContent = this.htmlReader
                     .readHtmlFile("C:\\testing\\FluffyDuffyMunchkinCats\\src\\main\\resources\\views\\error.html")
                     .replace("{{catName}}", catName);
+
         } else {
             htmlFileContent = this.htmlReader
                     .readHtmlFile(CAT_HTML_PROFILE_PATH)
@@ -45,6 +48,7 @@ public class CatProfileServelet extends HttpServlet {
                     .replace("{{catColour}}", cat.getColor())
                     .replace("{{catBreed}}", cat.getBreed())
                     .replace("{{catAge}}", cat.getAge().toString());
+
         }
 
         resp.getWriter().println(htmlFileContent);
