@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: NinoB
+  Date: 14.2.2019 г.
+  Time: 10:33
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <div class="jumbotron justify-content-center jumbotron-background">
+            <div class="row">
+                <div class="col col-md-12 d-flex justify-content-center">
+                    <h1>Create Cat!</h1>
+                </div>
+            </div>
+            <hr class="hr-background"/>
+            <h:form enctype="application/x-www-form-urlencoded">
+                <div class="row">
+                    <div class="col-md-12  d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel value="Name" for="name"/>
+                            <br/>
+                            <p:inputText id="name" value="#{createCatBean.catCreateModel.name}" class="form-contol" required="true" requiredMessage="Please, select a name"
+                                         validatorMessage="The name should be between 2 nad 10 letters" >
+                                <f:validateLength minimum="2" maximum="10"/>
+                            </p:inputText>
+                            <p:message id="nameMsg" for="name" style="color:red"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel value="Breed" for="breed"/>
+                            <br/>
+                            <p:inputText id="breed" value="#{createCatBean.catCreateModel.breed}" class="form-contol" required="true" requiredMessage="Please, select a breed"
+                                         validatorMessage="The bree should be between 5 and 20 letters">
+                                <f:validateLength minimum="5" maximum="20"/>
+                            </p:inputText>
+                            <p:message id="breedMsg" for="breed" style="color:red"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel value="Color" for="color"/>
+                            <br/>
+                            <p:inputText id="color" value="#{createCatBean.catCreateModel.color}" class="form-contol" required="true" requiredMessage="Please, select a color"
+                                         validatorMessage="The color should be between 3 and 20 letters">
+                                <f:validateLength minimum="3" maximum="20"/>
+                            </p:inputText>
+                            <p:message id="colorMsg" for="color" style="color:red"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel value="Age" for="age"/>
+                            <br/>
+                            <p:inputNumber id="age" value="#{createCatBean.catCreateModel.age}" class="form-contol" required="true" requiredMessage="Please, select an age"
+                                           validatorMessage="The age should be between 1 and 31">
+                                <f:validateDoubleRange minimum="1.00" maximum="31.00"/>
+                            </p:inputNumber>
+                            <p:message id="ageMsg" for="age" style="color:red"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-group">
+                            <h:outputLabel value="Price" for="price"/>
+                            <br/>
+                            <p:inputNumber id="price" value="#{createCatBean.catCreateModel.price}" class="form-contol" required="true" requiredMessage="Please, select a price"
+                                           validatorMessage="The price should be at least 0.01">
+                                <f:validateDoubleRange minimum="0.01"/>
+                            </p:inputNumber>
+                            <p:message id="priceMsg" for="price" style="color:red"/>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr-background"/>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <h:outputLabel for="catGenderRadio" class="mr-4" value="Gender"/>
+                        <h:selectOneRadio id="catGenderRadio" value="#{createCatBean.catCreateModel.gender}" required="true" requiredMessage="Please, select a gender">
+                            <f:selectItem itemValue="Male" itemLabel="Male"/>
+                            <f:selectItem itemValue="Female" itemLabel="Female"/>
+                        </h:selectOneRadio>
+                        <p:message id="genderMsg" for="catGenderRadio" style="color:red"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-check">
+                            <h:selectBooleanCheckbox value="#{createCatBean.catCreateModel.hasPassport}"/> Has passport
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr-background"/>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="form-group">
+                            <p:outputLabel for="catAddedOnInput" value="Added On"/>
+                            <br/>
+                            <h:panelGroup id="form">
+                                <p:calendar id="catAddedOnInput" value="#{createCatBean.catCreateModel.addedOn}" pattern="EEE dd/MMM/yyyy" required="true" requiredMessage="Please, select a date"/>
+                            </h:panelGroup>
+                            <p:message id="dateMsg" for="catAddedOnInput" style="color:red"/>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr-background"/>
+                <div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h:commandButton value="Create Cat" action="#{createCatBean.create}" class="btn btn-success"/>
+                </div>
+                </div>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+
+</html>

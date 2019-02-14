@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: NinoB
+  Date: 14.2.2019 г.
+  Time: 12:28
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <div class="jumbotron justify-content-center jumbotron-background">
+            <div class="row">
+                <div class="col col-md-12 d-flex justify-content-center">
+                    <h1>All Cats!</h1>
+                </div>
+            </div>
+            <hr class="hr-background"/>
+            <h:dataTable value = "#{catAllBean.cats}" var = "cat"
+                         styleClass = "table table-striped">
+
+                <h:column>
+                    <f:facet name = "header">Name</f:facet>
+                    #{cat.name}
+                </h:column>
+
+                <h:column>
+                    <f:facet name = "header">Breed</f:facet>
+                    #{cat.breed}
+                </h:column>
+
+                <h:column>
+                    <f:facet name = "header">Color</f:facet>
+                    #{cat.color}
+                </h:column>
+
+                <h:column>
+                    <f:facet name = "header">Gender</f:facet>
+                    #{cat.gender}
+                </h:column>
+
+                <h:column>
+                    <f:facet name = "header">Price</f:facet>
+                    <h:outputText value="#{cat.price}">
+                        <f:convertNumber pattern="$0.00" currencySymbol="$" type="currency"/>
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name = "header">Added On</f:facet>
+                    #{cat.addedOn}
+                </h:column>
+            </h:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>
+
+</html>
